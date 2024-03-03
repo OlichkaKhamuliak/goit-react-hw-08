@@ -1,0 +1,104 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.listItem {
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 6px 15px;
+  transition: var(--animation);
+}
+@media screen and (min-width: 500px) {
+  .listItem {
+    width: 467px;
+  }
+}
+.listItem:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemContent {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  text-align: left;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.btnWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6121d7;
+  padding: 7px;
+  color: antiquewhite;
+  border-radius: 15px;
+  transition: background-color var(--animation), box-shadow var(--animation);
+}
+.btn:hover,
+.btn:active {
+  background-color: #d73c21;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.listItem p {
+  margin: 0;
+}
+.edit:hover,
+.edit:active {
+  background-color: #d7a021;
+}
+
+.icon {
+  margin-right: 10px;
+  flex-shrink: 0; /* Заборона зменшення розміру іконки */
+}
+.text {
+  display: flex;
+  align-items: center;
+  width: 180px;
+}
+@media screen and (min-width: 768px) {
+  .list {
+    font-size: 25px;
+  }
+
+  .listItem {
+    width: 550px;
+    border-radius: 10px;
+  }
+  .btnWrap {
+    gap: 10px;
+  }
+  .btn {
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .icon {
+    margin-right: 15px;
+  }
+  .text {
+    display: flex;
+    align-items: center;
+    width: 400px;
+  }
+}
