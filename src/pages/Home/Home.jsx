@@ -39,7 +39,7 @@ export default function Home() {
                   >
                     👋.
                   </span>
-                  This is your "Phone Book".
+                  This is your «Phone Book».
                   <NavLink
                     className={`${css.link} ${css.login}`}
                     to="/contacts"
@@ -54,8 +54,18 @@ export default function Home() {
             <>
               <p className={css.text}>
                 <span>
-                  Hello! This is your "Phone Book". If you already have an
-                  account, please
+                  Hello!
+                  <span
+                    className={css.emoji}
+                    role="img"
+                    aria-label="Greeting icon"
+                  >
+                    👋
+                  </span>
+                  <br /> Welcome to «Phone Book», your personal contact
+                  organizer.
+                  <br />
+                  If you already have an account, please
                   <NavLink className={`${css.link} ${css.login}`} to="/login">
                     log in
                   </NavLink>
