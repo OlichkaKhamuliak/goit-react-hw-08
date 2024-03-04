@@ -2,6 +2,7 @@
   color: rgb(66, 39, 146);
   margin-left: 5px;
   margin-right: 5px;
+  transition: color var(--animation);
 }
 .login {
   margin-right: 0;
@@ -12,4 +13,12 @@
 }
 .emoji {
   margin-right: 5px;
+}
+.link:hover {
+  color: rgb(196, 255, 248);
+}
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 25px;
+  }
 }

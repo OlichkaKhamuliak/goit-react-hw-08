@@ -8,6 +8,7 @@ import { deleteContact } from "../../redux/contacts/operation";
 import { MdModeEditOutline } from "react-icons/md";
 import EditContactModal from "../editContactModal/editContactModal";
 import DeleteConfirmationModal from "../deleteContactModal/deleteContactModal";
+import toast from "react-hot-toast";
 
 export const Contact = ({ contact }) => {
   const { name, number, id } = contact;
@@ -26,6 +27,7 @@ export const Contact = ({ contact }) => {
   const handleDelete = (id) => {
     dispatch(deleteContact(id));
     setShowDeleteModal(false);
+    toast.success("Contact successfully deleted!");
   };
 
   return (
@@ -42,11 +44,11 @@ export const Contact = ({ contact }) => {
       </div>
       <div className={css.btnWrap}>
         <button className={`${css.btn} ${css.edit}`} onClick={openEditModal}>
-          <MdModeEditOutline className={css.icon} size="25" />
+          <MdModeEditOutline className={css.icon} size="20" />
           Edit
         </button>
         <button className={css.btn} onClick={() => setShowDeleteModal(true)}>
-          <IoPersonRemove className={css.icon} size="25" />
+          <IoPersonRemove className={css.icon} size="20" />
           Delete
         </button>
       </div>

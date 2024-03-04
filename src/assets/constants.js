@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import css from "./constans.module.css";
+
 export const customStyles = {
   content: {
     top: "50%",
@@ -12,4 +15,8 @@ export const customStyles = {
     maxWidth: "425px",
     padding: "10px",
   },
+};
+
+export const buildLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.active);
 };

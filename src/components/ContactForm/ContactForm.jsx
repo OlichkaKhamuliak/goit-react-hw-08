@@ -42,6 +42,7 @@ export const ContactForm = () => {
   const numberFieldId = useId();
   const handleAddContact = (newContact) => {
     dispatch(addContact(newContact));
+    toast.success("Contact successfully added!");
   };
 
   return (
@@ -141,7 +142,7 @@ export const ContactForm = () => {
           </div>
 
           <button className={css.button} type="submit">
-            <IoPersonAdd className={css.btnIcon} size="25" />
+            <IoPersonAdd className={css.btnIcon} size="20" />
             Add user
           </button>
         </Form>
