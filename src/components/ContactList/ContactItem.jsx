@@ -6,12 +6,14 @@ import { FaPhone } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operation";
 import { MdModeEditOutline } from "react-icons/md";
-import EditContactModal from "../contactModal/contactModal";
+import EditContactModal from "../editContactModal/editContactModal";
+import DeleteConfirmationModal from "../deleteContactModal/deleteContactModal";
 
 export const Contact = ({ contact }) => {
   const { name, number, id } = contact;
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const openEditModal = () => {
     setIsEditing(true);
@@ -19,6 +21,11 @@ export const Contact = ({ contact }) => {
 
   const closeEditModal = () => {
     setIsEditing(false);
+  };
+
+  const handleDelete = (id) => {
+    dispatch(deleteContact(id));
+    setShowDeleteModal(false);
   };
 
   return (
@@ -38,7 +45,7 @@ export const Contact = ({ contact }) => {
           <MdModeEditOutline className={css.icon} size="25" />
           Edit
         </button>
-        <button className={css.btn} onClick={() => dispatch(deleteContact(id))}>
+        <button className={css.btn} onClick={() => setShowDeleteModal(true)}>
           <IoPersonRemove className={css.icon} size="25" />
           Delete
         </button>
@@ -47,6 +54,11 @@ export const Contact = ({ contact }) => {
         isOpen={isEditing}
         closeModal={closeEditModal}
         contact={contact}
+      />
+      <DeleteConfirmationModal
+        isOpen={showDeleteModal}
+        onRequestClose={() => setShowDeleteModal(false)}
+        onConfirmDelete={() => handleDelete(id)}
       />
     </div>
   );

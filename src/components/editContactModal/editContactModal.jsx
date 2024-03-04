@@ -3,11 +3,12 @@ import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { updateContact } from "../../redux/contacts/operation";
 import toast from "react-hot-toast";
-import css from "./contactModal.module.css";
+import css from "./editContactModal.module.css";
 import { selectLoading } from "../../redux/contacts/selectors";
 import Loader from "../Loader/Loader";
 import { GrUpdate } from "react-icons/gr";
 import { MdOutlineCancel } from "react-icons/md";
+import { customStyles } from "../../assets/constants";
 
 Modal.setAppElement("#root");
 
@@ -44,21 +45,7 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
     dispatch(updateContact({ contactId: id, updatedData }));
     closeModal();
   };
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      backgroundColor: "pink",
-      borderColor: "black",
-      width: "80%",
-      maxWidth: "425px",
-      padding: "10px",
-    },
-  };
+
   return (
     <Modal
       isOpen={isOpen}

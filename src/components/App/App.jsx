@@ -1,12 +1,12 @@
 import { useEffect, lazy } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import { Layout } from "../Layout";
 import { PrivateRoute } from "../PrivateRoute";
 import { RestrictedRoute } from "../RestrictedRoute";
 import { refreshUser } from "../../redux/auth/operations";
 import { useAuth } from "../../hooks/useAuth";
+import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("../../pages/Home/Home"));
 const RegisterPage = lazy(() => import("../../pages/Register/Register"));
@@ -54,7 +54,13 @@ export const App = () => {
           />
         </Route>
       </Routes>
-      <Toaster />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        containerStyle={{
+          top: 80,
+        }}
+      />
     </>
   );
 };

@@ -8,7 +8,7 @@ import { IMaskInput } from "react-imask";
 import { useDispatch, useSelector } from "react-redux";
 import countries from "./countries";
 import { selectContacts } from "../../redux/contacts/selectors";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { addContact } from "../../redux/contacts/operation";
 
 const userSchema = Yup.object().shape({
@@ -107,7 +107,8 @@ export const ContactForm = () => {
             >
               Number
             </label>
-            <select
+            <Field
+              as="select"
               className={css.select}
               value={countryCode}
               onChange={handleCountryChange}
@@ -117,7 +118,7 @@ export const ContactForm = () => {
                   {option.label}
                 </option>
               ))}
-            </select>
+            </Field>
             <Field
               as={IMaskInput}
               className={css.input}
@@ -145,13 +146,6 @@ export const ContactForm = () => {
           </button>
         </Form>
       </Formik>
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        containerStyle={{
-          top: 80,
-        }}
-      />
     </div>
   );
 };

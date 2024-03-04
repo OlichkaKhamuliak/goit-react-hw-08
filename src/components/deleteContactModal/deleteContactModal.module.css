@@ -1,0 +1,47 @@
+.title {
+  text-align: center;
+}
+
+.btnWrap {
+  display: flex;
+  margin-top: 30px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c974a7;
+  padding: 5px 45px;
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  margin: 0 auto;
+  transition: background-color var(--animation);
+}
+.delete:hover {
+  background-color: #4cc1ae;
+}
+.cancel:hover {
+  background-color: #dd445b;
+}
+.icon {
+  margin-right: 10px;
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 35px;
+  }
+  .btnWrap {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .button {
+    font-size: 25px;
+    padding: 10px 75px;
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+  }
+}
