@@ -1,7 +1,7 @@
-import css from "./App.module.css";
-import { ContactForm } from "./components/ContactForm/ContactForm";
-import { SearchBox } from "./components/SearchBox/SearchBox";
-import { ContactList } from "./components/ContactList/ContactList";
+import css from "./Contacts.module.css";
+import { ContactForm } from "../../components/ContactForm/ContactForm";
+import { SearchBox } from "../../components/SearchBox/SearchBox";
+import { ContactList } from "../../components/ContactList/ContactList";
 import { FaAddressBook } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,13 +10,13 @@ import {
   selectFilter,
   selectLoading,
   selectVisibleContacts,
-} from "./redux/selectors";
+} from "../../redux/contacts/selectors";
 import { useEffect } from "react";
-import { setFilter } from "./redux/filterSlice";
-import { fetchContacts } from "./redux/operation";
-import Loader from "./components/Loader/Loader";
+import { setFilter } from "../../redux/contacts/filterSlice";
+import { fetchContacts } from "../../redux/contacts/operation";
+import Loader from "../../components/Loader/Loader";
 
-export const App = () => {
+export default function Contacts() {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
@@ -61,4 +61,4 @@ export const App = () => {
       )}
     </div>
   );
-};
+}

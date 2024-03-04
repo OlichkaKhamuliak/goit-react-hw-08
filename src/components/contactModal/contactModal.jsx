@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-import { updateContact } from "../../redux/operation";
+import { updateContact } from "../../redux/contacts/operation";
 import toast from "react-hot-toast";
 import css from "./contactModal.module.css";
-import { selectLoading } from "../../redux/selectors";
+import { selectLoading } from "../../redux/contacts/selectors";
 import Loader from "../Loader/Loader";
 import { GrUpdate } from "react-icons/gr";
 import { MdOutlineCancel } from "react-icons/md";

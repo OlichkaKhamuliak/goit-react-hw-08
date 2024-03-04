@@ -4,7 +4,7 @@ import { IoPersonRemove } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/operation";
+import { deleteContact } from "../../redux/contacts/operation";
 import { MdModeEditOutline } from "react-icons/md";
 import EditContactModal from "../contactModal/contactModal";
 

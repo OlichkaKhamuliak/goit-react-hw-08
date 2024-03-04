@@ -7,9 +7,9 @@ import { IoPersonAdd } from "react-icons/io5";
 import { IMaskInput } from "react-imask";
 import { useDispatch, useSelector } from "react-redux";
 import countries from "./countries";
-import { selectContacts } from "../../redux/selectors";
+import { selectContacts } from "../../redux/contacts/selectors";
 import toast, { Toaster } from "react-hot-toast";
-import { addContact } from "../../redux/operation";
+import { addContact } from "../../redux/contacts/operation";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
