@@ -12,12 +12,12 @@ import { MdOutlineCancel } from "react-icons/md";
 Modal.setAppElement("#root");
 
 const EditContactModal = ({ isOpen, closeModal, contact }) => {
-  const { name, phone, id } = contact;
+  const { name, number, id } = contact;
 
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
   const [editedName, setEditedName] = useState(name);
-  const [editedPhone, setEditedPhone] = useState(phone);
+  const [editedPhone, setEditedPhone] = useState(number);
 
   const handleUpdateContact = () => {
     if (editedName.trim().length < 3) {
@@ -39,7 +39,7 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
 
     const updatedData = {
       name: editedName,
-      phone: editedPhone,
+      number: editedPhone,
     };
     dispatch(updateContact({ contactId: id, updatedData }));
     closeModal();
@@ -92,7 +92,7 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
         <button
           onClick={handleUpdateContact}
           className={`${css.button} ${css.update}`}
-          disabled={editedName.trim() === name && editedPhone.trim() === phone}
+          disabled={editedName.trim() === name && editedPhone.trim() === number}
         >
           <GrUpdate className={css.icon} size="18" />
           Update

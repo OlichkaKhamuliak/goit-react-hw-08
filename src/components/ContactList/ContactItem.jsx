@@ -9,7 +9,7 @@ import { MdModeEditOutline } from "react-icons/md";
 import EditContactModal from "../contactModal/contactModal";
 
 export const Contact = ({ contact }) => {
-  const { name, phone, id } = contact;
+  const { name, number, id } = contact;
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
 
@@ -30,7 +30,7 @@ export const Contact = ({ contact }) => {
         </p>
         <p className={css.text}>
           <FaPhone className={css.icon} />
-          {phone}
+          {number}
         </p>
       </div>
       <div className={css.btnWrap}>

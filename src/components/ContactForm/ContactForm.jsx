@@ -55,7 +55,7 @@ export const ContactForm = () => {
         onSubmit={(values, { resetForm }) => {
           const newContact = {
             name: values.name,
-            phone: values.number,
+            number: values.number,
           };
           //Перевіряємо чи номер або ім'я контакту вже існує в книзі контактів
           const nameMatch = contacts.find(
@@ -63,7 +63,7 @@ export const ContactForm = () => {
               contact.name.toLowerCase() === values.name.toLocaleLowerCase()
           );
           const numberMatch = contacts.find(
-            (contact) => contact.phone === values.number
+            (contact) => contact.number === values.number
           );
 
           if (nameMatch || numberMatch) {
