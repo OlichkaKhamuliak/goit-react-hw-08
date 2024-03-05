@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
 import toast from "react-hot-toast";
+import { EmailPasswordInputs } from "../EmailPasswordInputs/EmailPasswordInputs";
+import { AuthBtn } from "../AuthBtn/AuthBtn";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,8 @@ export const LoginForm = () => {
     )
       .unwrap()
       .then(() => {
-        toast.success("Login success");
+        console.log();
+        ("Login success");
       })
       .catch(() => {
         toast.error("Login error: incorrect email or password :c");
@@ -29,15 +32,8 @@ export const LoginForm = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
+      <EmailPasswordInputs />
+      <AuthBtn>Log In</AuthBtn>
     </form>
   );
 };

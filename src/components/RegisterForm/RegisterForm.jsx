@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import css from "./RegisterForm.module.css";
 import { register } from "../../redux/auth/operations";
+import toast from "react-hot-toast";
+import { EmailPasswordInputs } from "../EmailPasswordInputs/EmailPasswordInputs";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,15 @@ export const RegisterForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
+    )
+      .unwrap()
+      .then(() => {
+        console.log();
+        ("Registration success");
+      })
+      .catch(() => {
+        toast.error("Registration error: Something went wrong");
+      });
 
     form.reset();
   };
@@ -26,14 +36,7 @@ export const RegisterForm = () => {
         Username
         <input type="text" name="name" />
       </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
+      <EmailPasswordInputs />
       <button type="submit">Register</button>
     </form>
   );

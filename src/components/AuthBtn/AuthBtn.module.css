@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6121d7;
+  padding: 3px 15px;
+  color: antiquewhite;
+  border-radius: 15px;
+  margin: 0 auto;
+  transition: background-color var(--animation), box-shadow var(--animation);
+}
+.button:hover,
+.button:active {
+  background-color: #21acd7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 768px) {
+  .button {
+    padding: 5px 25px;
+  }
+}
