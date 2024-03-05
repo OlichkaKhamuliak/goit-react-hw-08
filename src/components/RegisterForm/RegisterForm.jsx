@@ -3,6 +3,8 @@ import css from "./RegisterForm.module.css";
 import { register } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
 import { EmailPasswordInputs } from "../EmailPasswordInputs/EmailPasswordInputs";
+import { AuthBtn } from "../AuthBtn/AuthBtn";
+import { NavLink } from "react-router-dom";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -20,8 +22,7 @@ export const RegisterForm = () => {
     )
       .unwrap()
       .then(() => {
-        console.log();
-        ("Registration success");
+        toast.success("Registration success");
       })
       .catch(() => {
         toast.error("Registration error: Something went wrong");
@@ -34,10 +35,20 @@ export const RegisterForm = () => {
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.label}>
         Username
-        <input type="text" name="name" />
+        <input
+          type="text"
+          name="name"
+          required
+          pattern=".{2,40}"
+          title="Username must be between 2 and 30 characters"
+          className={css.input}
+        />
       </label>
       <EmailPasswordInputs />
-      <button type="submit">Register</button>
+      <NavLink className={css.link} to="/login">
+        Already have an account? Log in
+      </NavLink>
+      <AuthBtn>Register</AuthBtn>
     </form>
   );
 };

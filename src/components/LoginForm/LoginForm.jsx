@@ -4,6 +4,7 @@ import css from "./LoginForm.module.css";
 import toast from "react-hot-toast";
 import { EmailPasswordInputs } from "../EmailPasswordInputs/EmailPasswordInputs";
 import { AuthBtn } from "../AuthBtn/AuthBtn";
+import { NavLink } from "react-router-dom";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -20,8 +21,7 @@ export const LoginForm = () => {
     )
       .unwrap()
       .then(() => {
-        console.log();
-        ("Login success");
+        toast.success("Login success");
       })
       .catch(() => {
         toast.error("Login error: incorrect email or password :c");
@@ -33,6 +33,9 @@ export const LoginForm = () => {
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <EmailPasswordInputs />
+      <NavLink className={css.link} to="/register">
+        Don`t have an account? Register
+      </NavLink>
       <AuthBtn>Log In</AuthBtn>
     </form>
   );

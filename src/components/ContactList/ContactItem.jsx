@@ -6,9 +6,10 @@ import { FaPhone } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operation";
 import { MdModeEditOutline } from "react-icons/md";
-import EditContactModal from "../editContactModal/editContactModal";
+
 import DeleteConfirmationModal from "../deleteContactModal/deleteContactModal";
 import toast from "react-hot-toast";
+import EditContactModal from "../EditContactModal/EditContactModal";
 
 export const Contact = ({ contact }) => {
   const { name, number, id } = contact;

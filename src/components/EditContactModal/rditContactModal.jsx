@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { updateContact } from "../../redux/contacts/operation";
 import toast from "react-hot-toast";
-import css from "./editContactModal.module.css";
+import css from "./EditContactModal.module.css";
 import { selectLoading } from "../../redux/contacts/selectors";
 import Loader from "../Loader/Loader";
 import { GrUpdate } from "react-icons/gr";

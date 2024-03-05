@@ -3,11 +3,12 @@
   align-items: center;
   justify-content: center;
   background-color: #6121d7;
-  padding: 3px 15px;
+  padding: 3px 35px;
   color: antiquewhite;
   border-radius: 15px;
   margin: 0 auto;
   transition: background-color var(--animation), box-shadow var(--animation);
+  margin-top: 20px;
 }
 .button:hover,
 .button:active {
@@ -16,6 +17,6 @@
 }
 @media screen and (min-width: 768px) {
   .button {
-    padding: 5px 25px;
+    padding: 5px 55px;
   }
 }

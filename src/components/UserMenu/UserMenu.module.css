@@ -19,7 +19,7 @@
   transition: background-color var(--animation);
 }
 .logout:hover {
-  background-color: #ece75d92;
+  background-color: #f4d420d2;
 }
 @media screen and (min-width: 768px) {
   .wrapper {
