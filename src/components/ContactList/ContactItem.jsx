@@ -9,7 +9,7 @@ import { MdModeEditOutline } from "react-icons/md";
 
 import DeleteConfirmationModal from "../deleteContactModal/deleteContactModal";
 import toast from "react-hot-toast";
-import EditContactModal from "../EditContactModal/EditContactModal";
+import EditContactModal from "../EditContModal/EditContModal";
 
 export const Contact = ({ contact }) => {
   const { name, number, id } = contact;
