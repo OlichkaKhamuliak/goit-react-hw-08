@@ -58,11 +58,14 @@ export default function Home() {
                   organizer.
                   <br />
                   If you already have an account, please
-                  <NavLink className={`${css.link} ${css.login}`} to="/login">
+                  <NavLink
+                    className={`${css.registerLink} ${css.login}`}
+                    to="/login"
+                  >
                     log in
                   </NavLink>
                   . If not, please
-                  <NavLink className={css.link} to="/register">
+                  <NavLink className={css.registerLink} to="/register">
                     register
                   </NavLink>
                   to start using it.
