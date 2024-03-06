@@ -2,9 +2,9 @@ import { useState } from "react";
 import { IoIosEye } from "react-icons/io";
 import { IoEyeOffSharp } from "react-icons/io5";
 import css from "./EmailPasswordInputs.module.css";
-export const EmailPasswordInputs = () => {
-  const [showPassword, setShowPassword] = useState(false);
 
+export default function EmailPasswordInputs() {
+  const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -48,4 +48,4 @@ export const EmailPasswordInputs = () => {
       </label>
     </div>
   );
-};
+}

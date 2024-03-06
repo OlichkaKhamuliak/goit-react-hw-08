@@ -2,31 +2,17 @@ import { NavLink } from "react-router-dom";
 import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
 import { useAuth } from "../../hooks/useAuth";
 import css from "./Home.module.css";
-
-const styles = {
-  container: {
-    minHeight: "calc(100vh - 50px)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: "center",
-  },
-};
+import svg from "./phone-book.svg";
 
 export default function Home() {
   const { user } = useAuth();
-  console.log(user);
 
   return (
     <>
       <DocumentTitle>Home</DocumentTitle>
 
-      <div style={styles.container}>
-        <h1 style={styles.title}>
+      <div className={css.container}>
+        <h1 className={css.title}>
           {user.name ? (
             <>
               <p className={css.text}>
@@ -49,6 +35,12 @@ export default function Home() {
                   </NavLink>
                 </span>
               </p>
+              <img
+                src={svg}
+                alt="Phone book svg"
+                width="450"
+                className={css.svg}
+              />
             </>
           ) : (
             <>

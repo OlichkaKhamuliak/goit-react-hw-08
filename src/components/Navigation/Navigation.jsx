@@ -3,7 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import css from "./Navigation.module.css";
 import { buildLinkClass } from "../../assets/constants";
 
-export const Navigation = () => {
+export default function Navigation() {
   const { isLoggedIn } = useAuth();
 
   return (
@@ -18,4 +18,4 @@ export const Navigation = () => {
       )}
     </nav>
   );
-};
+}

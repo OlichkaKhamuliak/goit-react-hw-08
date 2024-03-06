@@ -1,7 +1,7 @@
 import { ThreeDots } from "react-loader-spinner";
 import css from "./RefreshLoader.module.css";
 
-const RefreshLoader = () => {
+export default function RefreshLoader() {
   return (
     <div className={css.loaderContainer}>
       <div className={css.loaderWrapper}>
@@ -18,6 +18,4 @@ const RefreshLoader = () => {
       </div>
     </div>
   );
-};
-
-export default RefreshLoader;
+}

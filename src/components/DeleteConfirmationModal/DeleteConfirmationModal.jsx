@@ -6,11 +6,11 @@ import { VscCircleSlash } from "react-icons/vsc";
 
 Modal.setAppElement("#root");
 
-const DeleteConfirmationModal = ({
+export default function DeleteConfirmationModal({
   isOpen,
   onRequestClose,
   onConfirmDelete,
-}) => {
+}) {
   return (
     <Modal
       isOpen={isOpen}
@@ -39,6 +39,4 @@ const DeleteConfirmationModal = ({
       </div>
     </Modal>
   );
-};
-
-export default DeleteConfirmationModal;
+}

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { buildLinkClass } from "../../assets/constants";
 import css from "./AuthNav.module.css";
 
-export const AuthNav = () => {
+export default function AuthNav() {
   return (
     <div className={css.wrap}>
       <NavLink className={buildLinkClass} to="/register">
@@ -13,4 +13,4 @@ export const AuthNav = () => {
       </NavLink>
     </div>
   );
-};
+}

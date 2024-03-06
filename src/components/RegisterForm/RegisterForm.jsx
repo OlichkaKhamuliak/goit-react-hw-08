@@ -2,11 +2,11 @@ import { useDispatch } from "react-redux";
 import css from "./RegisterForm.module.css";
 import { register } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
-import { EmailPasswordInputs } from "../EmailPasswordInputs/EmailPasswordInputs";
-import { AuthBtn } from "../AuthBtn/AuthBtn";
 import { NavLink } from "react-router-dom";
+import EmailPasswordInputs from "../EmailPasswordInputs/EmailPasswordInputs";
+import AuthBtn from "../AuthBtn/AuthBtn";
 
-export const RegisterForm = () => {
+export default function RegisterForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -25,7 +25,7 @@ export const RegisterForm = () => {
         toast.success("Registration success");
       })
       .catch(() => {
-        toast.error("Oops, something went wrong");
+        toast.error("Oops, something went wrong :c Try again!");
       });
 
     form.reset();
@@ -51,4 +51,4 @@ export const RegisterForm = () => {
       <AuthBtn>Register</AuthBtn>
     </form>
   );
-};
+}

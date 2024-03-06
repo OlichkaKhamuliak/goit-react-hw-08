@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import css from "./NotFoundPage.module.css";
 import img from "../../assets/404notFound.png";
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   const navigate = useNavigate();
   const [secondsLeft, setSecondsLeft] = useState(5); // Початкове значення таймера
 
@@ -47,6 +47,4 @@ const NotFoundPage = () => {
       <img src={img} className={css.img} alt="404 page img" />
     </div>
   );
-};
-
-export default NotFoundPage;
+}

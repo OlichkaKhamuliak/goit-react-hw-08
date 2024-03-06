@@ -10,7 +10,7 @@ import { customStyles } from "../../assets/constants";
 
 Modal.setAppElement("#root");
 
-const EditContactModal = ({ isOpen, closeModal, contact }) => {
+export default function EditContactModal({ isOpen, closeModal, contact }) {
   const { name, number, id } = contact;
 
   const dispatch = useDispatch();
@@ -78,7 +78,6 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
           value={editedPhone}
           className={css.input}
           placeholder="Phone number"
-          pattern="^\+?\d[\d()\-\s]*$"
           required
           title="Phone number can start with '+' and contain only digits, dashes, parentheses, and spaces."
           onChange={(e) => setEditedPhone(e.target.value)}
@@ -100,6 +99,4 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
       </div>
     </Modal>
   );
-};
-
-export default EditContactModal;
+}

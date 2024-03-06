@@ -1,15 +1,12 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
-// import { nanoid } from "nanoid";
 import { IoPersonAdd } from "react-icons/io5";
 import { IMaskInput } from "react-imask";
-import { useDispatch } from "react-redux";
-import countries from "./countries";
 import toast from "react-hot-toast";
-import { addContact } from "../../redux/contacts/operation";
 import { useContacts } from "../../hooks/useContacts";
+import { useContactForm } from "../../hooks/useContactForm";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -17,33 +14,22 @@ const userSchema = Yup.object().shape({
     .required("Name is a required field"),
   number: Yup.string()
     .matches(/^\+?[\d()\-\s]+$/, "Invalid phone number format")
+    .min(2, "Number must be at least 2 character long")
     .required("Phone number is required"),
 });
 
-export const ContactForm = () => {
-  const dispatch = useDispatch();
+export default function ContactForm() {
   const { contacts } = useContacts();
-
-  const [countryCode, setCountryCode] = useState("+38"); // Початковий код країни
-  const [placeholder, setPlaceholder] = useState("0671234567");
-
-  const [countryOptions] = useState(countries);
-
-  const handleCountryChange = (e) => {
-    const newCountryCode = e.target.value;
-    setCountryCode(newCountryCode);
-    const newPlaceholder = countryOptions.find(
-      (option) => option.value === newCountryCode
-    ).placeholder;
-    setPlaceholder(newPlaceholder);
-  };
-
   const nameFieldId = useId();
   const numberFieldId = useId();
-  const handleAddContact = (newContact) => {
-    dispatch(addContact(newContact));
-    toast.success("Contact successfully added!");
-  };
+
+  const {
+    countryCode,
+    placeholder,
+    handleCountryChange,
+    handleAddContact,
+    countryOptions,
+  } = useContactForm();
 
   return (
     <div>
@@ -147,4 +133,4 @@ export const ContactForm = () => {
       </Formik>
     </div>
   );
-};
+}

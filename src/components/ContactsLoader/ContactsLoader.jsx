@@ -1,7 +1,7 @@
 import { Puff } from "react-loader-spinner";
 import css from "./ContactsLoader.module.css";
 
-const ContactsLoader = () => {
+export default function ContactsLoader() {
   return (
     <div className={css.loaderContainer}>
       <div className={css.loaderWrapper}>
@@ -17,6 +17,4 @@ const ContactsLoader = () => {
       </div>
     </div>
   );
-};
-
-export default ContactsLoader;
+}

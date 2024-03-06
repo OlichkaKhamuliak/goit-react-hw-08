@@ -1,41 +1,23 @@
-import { useState } from "react";
 import css from "./ContactList.module.css";
 import { IoPersonRemove } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operation";
 import { MdModeEditOutline } from "react-icons/md";
-
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
-import toast from "react-hot-toast";
 import EditContactModal from "../EditContactModal/EditContactModal";
+import { useContactItem } from "../../hooks/useContactItem";
 
-export const Contact = ({ contact }) => {
+export default function ContactItem({ contact }) {
   const { name, number, id } = contact;
-  const dispatch = useDispatch();
-  const [isEditing, setIsEditing] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-
-  const openEditModal = () => {
-    setIsEditing(true);
-  };
-
-  const closeEditModal = () => {
-    setIsEditing(false);
-  };
-
-  const handleDelete = (id) => {
-    dispatch(deleteContact(id))
-      .unwrap()
-      .then(() => {
-        toast.success("Contact successfully deleted!");
-        setShowDeleteModal(false);
-      })
-      .catch(() => {
-        toast.error("Something went wrong. Please try reloading the page.");
-      });
-  };
+  const {
+    isEditing,
+    showDeleteModal,
+    openEditModal,
+    closeEditModal,
+    handleDelete,
+    openDeleteModal,
+    closeDeleteModal,
+  } = useContactItem();
 
   return (
     <div className={css.wrap}>
@@ -54,7 +36,7 @@ export const Contact = ({ contact }) => {
           <MdModeEditOutline className={css.icon} size="20" />
           Edit
         </button>
-        <button className={css.btn} onClick={() => setShowDeleteModal(true)}>
+        <button className={css.btn} onClick={openDeleteModal}>
           <IoPersonRemove className={css.icon} size="20" />
           Delete
         </button>
@@ -66,9 +48,9 @@ export const Contact = ({ contact }) => {
       />
       <DeleteConfirmationModal
         isOpen={showDeleteModal}
-        onRequestClose={() => setShowDeleteModal(false)}
+        onRequestClose={closeDeleteModal}
         onConfirmDelete={() => handleDelete(id)}
       />
     </div>
   );
-};
+}

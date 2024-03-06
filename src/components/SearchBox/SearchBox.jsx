@@ -3,7 +3,7 @@ import css from "./SearchBox.module.css";
 import { setFilter } from "../../redux/contacts/filterSlice";
 import { useContacts } from "../../hooks/useContacts";
 
-export const SearchBox = () => {
+export default function SearchBox() {
   const dispatch = useDispatch();
   const { filter } = useContacts();
   return (
@@ -17,4 +17,4 @@ export const SearchBox = () => {
       />
     </div>
   );
-};
+}
