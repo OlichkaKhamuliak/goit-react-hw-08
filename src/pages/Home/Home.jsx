@@ -71,6 +71,12 @@ export default function Home() {
                   to start using it.
                 </span>
               </p>
+              <img
+                src={svg}
+                alt="Phone book svg"
+                width="450"
+                className={css.svg}
+              />
             </>
           )}
         </h1>
