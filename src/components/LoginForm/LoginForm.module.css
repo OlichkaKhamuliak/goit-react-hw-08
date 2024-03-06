@@ -24,10 +24,3 @@
     max-width: 400px;
   }
 }
-input:focus:invalid {
-  border: solid 1px #f5192f;
-}
-
-input:focus:valid {
-  border: solid 1px #18e109;
-}

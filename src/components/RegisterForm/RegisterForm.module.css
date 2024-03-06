@@ -35,10 +35,10 @@
 .link:hover {
   color: rgb(218, 144, 46);
 }
-input:focus:invalid {
+input.input:focus:invalid {
   border: solid 1px #f5192f;
 }
 
-input:focus:valid {
+input.input:focus:valid {
   border: solid 1px #18e109;
 }

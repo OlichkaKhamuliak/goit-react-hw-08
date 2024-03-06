@@ -10,10 +10,31 @@
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="./src/assets/scrollUp/scrollUp.js"
+      type="module"
+      defer
+      async
+    ></script>
+
     <title>Phone Book</title>
+    <link rel="stylesheet" href="./src/assets/scrollUp/scrollUp.css" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <div class="scroll-up">
+      <svg class="scroll-up__svg" viewBox="-2 -2 52 52">
+        <path
+          class="scroll-up__svg-path"
+          d="M24, 0 a24, 24 0 0, 1 0, 48 a24, 24 0 0, 1 0, -48"
+        />
+      </svg>
+      <img
+        class="scroll-up__img"
+        src="/src/assets/scrollUp/arrowUp.png"
+        alt="Arrow up"
+      />
+    </div>
   </body>
 </html>

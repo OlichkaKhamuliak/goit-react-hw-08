@@ -5,11 +5,11 @@ import css from "./ContactForm.module.css";
 // import { nanoid } from "nanoid";
 import { IoPersonAdd } from "react-icons/io5";
 import { IMaskInput } from "react-imask";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import countries from "./countries";
-import { selectContacts } from "../../redux/contacts/selectors";
 import toast from "react-hot-toast";
 import { addContact } from "../../redux/contacts/operation";
+import { useContacts } from "../../hooks/useContacts";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -22,10 +22,10 @@ const userSchema = Yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const { contacts } = useContacts();
 
   const [countryCode, setCountryCode] = useState("+38"); // Початковий код країни
-  const [placeholder, setPlaceholder] = useState("+38 (000)-000-0000");
+  const [placeholder, setPlaceholder] = useState("0671234567");
 
   const [countryOptions] = useState(countries);
 
@@ -34,7 +34,7 @@ export const ContactForm = () => {
     setCountryCode(newCountryCode);
     const newPlaceholder = countryOptions.find(
       (option) => option.value === newCountryCode
-    ).mask;
+    ).placeholder;
     setPlaceholder(newPlaceholder);
   };
 
@@ -126,9 +126,7 @@ export const ContactForm = () => {
               type="tel"
               name="number"
               id={numberFieldId}
-              placeholder={
-                countryCode === "another" ? "Enter number" : placeholder
-              }
+              placeholder={placeholder}
               mask={
                 countryOptions.find((option) => option.value === countryCode)
                   .mask

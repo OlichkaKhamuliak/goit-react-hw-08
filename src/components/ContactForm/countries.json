@@ -2,17 +2,20 @@
   {
     "value": "+38",
     "label": "\uD83C\uDDFA\uD83C\uDDE6 (+38)",
-    "mask": "+38 (000)-000-0000"
+    "mask": "+38 (000)-000-0000",
+    "placeholder": "0671234567"
   },
   {
     "value": "+1",
     "label": "\uD83C\uDDFA\uD83C\uDDF8 (+1)",
-    "mask": "+1 (000)-000-0000"
+    "mask": "+1 (000)-000-0000",
+    "placeholder": "2121234567"
   },
   {
     "value": "+44",
     "label": "\uD83C\uDDEC\uD83C\uDDE7 (+44)",
-    "mask": "+44 (0000)-000000"
+    "mask": "+44 (00)-0000-0000",
+    "placeholder": "2012345678"
   },
-  { "value": "another", "label": "Another" }
+  { "value": "another", "label": "Another", "placeholder": "Enter number" }
 ]

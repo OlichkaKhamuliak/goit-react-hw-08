@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import css from "./SearchBox.module.css";
-import { selectFilter } from "../../redux/contacts/selectors";
 import { setFilter } from "../../redux/contacts/filterSlice";
+import { useContacts } from "../../hooks/useContacts";
 
 export const SearchBox = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
+  const { filter } = useContacts();
   return (
     <div className={css.wrapper}>
       <p>Finds contacts by name or phone number</p>

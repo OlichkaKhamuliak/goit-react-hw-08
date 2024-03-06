@@ -3,27 +3,17 @@ import { ContactForm } from "../../components/ContactForm/ContactForm";
 import { SearchBox } from "../../components/SearchBox/SearchBox";
 import { ContactList } from "../../components/ContactList/ContactList";
 import { FaAddressBook } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectContacts,
-  selectError,
-  selectFilter,
-  selectLoading,
-  selectVisibleContacts,
-} from "../../redux/contacts/selectors";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setFilter } from "../../redux/contacts/filterSlice";
 import { fetchContacts } from "../../redux/contacts/operation";
 import ContactsLoader from "../../components/ContactsLoader/ContactsLoader";
+import { useContacts } from "../../hooks/useContacts";
 
 export default function Contacts() {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
-  const visibleContacts = useSelector(selectVisibleContacts);
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const { contacts, filter, visibleContacts, loading, error } = useContacts();
 
   //Скидуємо фільтр коли масив контактів порожній
   useEffect(() => {

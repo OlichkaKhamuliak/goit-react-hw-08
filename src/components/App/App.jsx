@@ -8,6 +8,7 @@ import { refreshUser } from "../../redux/auth/operations";
 import { useAuth } from "../../hooks/useAuth";
 import { Toaster } from "react-hot-toast";
 import RefreshLoader from "../RefreshLoader/RefreshLoader";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 const HomePage = lazy(() => import("../../pages/Home/Home"));
 const RegisterPage = lazy(() => import("../../pages/Register/Register"));
@@ -52,7 +53,8 @@ export const App = () => {
             element={
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
-          />
+          />{" "}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       <Toaster
