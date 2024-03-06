@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operation";
 import { MdModeEditOutline } from "react-icons/md";
 
-import DeleteConfirmationModal from "../deleteContactModal/deleteContactModal";
+import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
 import toast from "react-hot-toast";
-import EditContactModal from "../EditContModal/EditContModal";
+import EditContactModal from "../EditContactModal/EditContactModal";
 
 export const Contact = ({ contact }) => {
   const { name, number, id } = contact;
@@ -26,9 +26,15 @@ export const Contact = ({ contact }) => {
   };
 
   const handleDelete = (id) => {
-    dispatch(deleteContact(id));
-    setShowDeleteModal(false);
-    toast.success("Contact successfully deleted!");
+    dispatch(deleteContact(id))
+      .unwrap()
+      .then(() => {
+        toast.success("Contact successfully deleted!");
+        setShowDeleteModal(false);
+      })
+      .catch(() => {
+        toast.error("Something went wrong. Please try reloading the page.");
+      });
   };
 
   return (

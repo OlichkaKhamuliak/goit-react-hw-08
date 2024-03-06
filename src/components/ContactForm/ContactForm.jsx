@@ -13,7 +13,7 @@ import { addContact } from "../../redux/contacts/operation";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, "Name must be at least 3 characters long")
+    .min(2, "Name must be at least 2 characters long")
     .required("Name is a required field"),
   number: Yup.string()
     .matches(/^\+?[\d()\-\s]+$/, "Invalid phone number format")

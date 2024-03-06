@@ -7,7 +7,7 @@ import { RestrictedRoute } from "../RestrictedRoute";
 import { refreshUser } from "../../redux/auth/operations";
 import { useAuth } from "../../hooks/useAuth";
 import { Toaster } from "react-hot-toast";
-import Loader from "../Loader/Loader";
+import RefreshLoader from "../RefreshLoader/RefreshLoader";
 
 const HomePage = lazy(() => import("../../pages/Home/Home"));
 const RegisterPage = lazy(() => import("../../pages/Register/Register"));
@@ -23,7 +23,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader />
+    <RefreshLoader />
   ) : (
     <>
       <Routes>

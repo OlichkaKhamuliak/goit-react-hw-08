@@ -75,7 +75,7 @@
   display: flex;
   align-items: center;
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .list {
     font-size: 20px;
   }
@@ -102,4 +102,4 @@
     align-items: center;
     width: 400px;
   }
-}
+} */

@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import { customStyles } from "../../assets/constants";
-import css from "./deleteContactModal.module.css";
+import css from "./DeleteConfirmationModal.module.css";
 import { AiOutlineDelete } from "react-icons/ai";
 import { VscCircleSlash } from "react-icons/vsc";
 

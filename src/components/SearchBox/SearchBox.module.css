@@ -17,7 +17,7 @@
     width: 430px;
   }
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .wrapper {
     font-size: 20px;
     margin-bottom: 50px;
@@ -30,4 +30,4 @@
     width: 510px;
     padding: 10px;
   }
-}
+} */

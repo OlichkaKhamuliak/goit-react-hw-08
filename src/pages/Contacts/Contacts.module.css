@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   margin-bottom: 30px;
 }
 .icon {
@@ -14,20 +13,12 @@
 }
 
 .noContacts {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 @media screen and (min-width: 768px) {
-  .title {
-    font-size: 45px;
-    margin-top: 25px;
-  }
-  .icon {
-    margin-right: 20px;
-  }
-
   .noContacts,
   .text {
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 40px;
   }
 }

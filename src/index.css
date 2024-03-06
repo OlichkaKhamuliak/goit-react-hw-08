@@ -83,11 +83,3 @@ body.ReactModal__Body--open {
     max-width: 40% !important;
   }
 }
-
-input:focus:invalid {
-  border: solid 1px #f5192f;
-}
-
-input:focus:valid {
-  border: solid 1px #18e109;
-}

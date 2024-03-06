@@ -14,7 +14,7 @@ import {
 import { useEffect } from "react";
 import { setFilter } from "../../redux/contacts/filterSlice";
 import { fetchContacts } from "../../redux/contacts/operation";
-import Loader from "../../components/Loader/Loader";
+import ContactsLoader from "../../components/ContactsLoader/ContactsLoader";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export default function Contacts() {
         Phone Book
       </h1>
       <ContactForm />
-      {loading && <Loader />}
+      {loading && <ContactsLoader />}
       {contacts.length > 0 ? (
         <SearchBox />
       ) : loading ? null : ( // Перевірка, чи завантажуються контакти

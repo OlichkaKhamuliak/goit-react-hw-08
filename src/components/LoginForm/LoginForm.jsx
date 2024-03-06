@@ -24,7 +24,7 @@ export const LoginForm = () => {
         toast.success("Login success");
       })
       .catch(() => {
-        toast.error("Login error: incorrect email or password :c");
+        toast.error("Incorrect email or password :c");
       });
 
     form.reset();

@@ -25,7 +25,7 @@ export const RegisterForm = () => {
         toast.success("Registration success");
       })
       .catch(() => {
-        toast.error("Registration error: Something went wrong");
+        toast.error("Oops, something went wrong");
       });
 
     form.reset();
@@ -40,7 +40,7 @@ export const RegisterForm = () => {
           name="name"
           required
           pattern=".{2,40}"
-          title="Username must be between 2 and 30 characters"
+          title="Username must be between 2 and 40 characters"
           className={css.input}
         />
       </label>

@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/operation";
 import toast from "react-hot-toast";
 import css from "./EditContactModal.module.css";
-import { selectLoading } from "../../redux/contacts/selectors";
-import Loader from "../Loader/Loader";
 import { GrUpdate } from "react-icons/gr";
 import { MdOutlineCancel } from "react-icons/md";
 import { customStyles } from "../../assets/constants";
@@ -16,20 +14,19 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
   const { name, number, id } = contact;
 
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
   const [editedName, setEditedName] = useState(name);
   const [editedPhone, setEditedPhone] = useState(number);
 
   const handleUpdateContact = () => {
     if (editedName.trim().length < 3) {
-      toast.error("Name must be at least 3 characters long");
+      toast.error("Name must be at least 2 characters long.");
       return;
     }
 
     const phoneRegex = /^\+?[0-9()-\s]+$/;
     if (!phoneRegex.test(editedPhone.trim())) {
       toast.error(
-        "Phone number can start with '+' and contain only digits, dashes, parentheses, and spaces"
+        "Phone number can start with '+' and contain only digits, dashes, parentheses, and spaces."
       );
       return;
     }
@@ -42,8 +39,15 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
       name: editedName,
       number: editedPhone,
     };
-    dispatch(updateContact({ contactId: id, updatedData }));
-    closeModal();
+    dispatch(updateContact({ contactId: id, updatedData }))
+      .unwrap()
+      .then(() => {
+        toast.success("Contact successfully updated!");
+        closeModal();
+      })
+      .catch(() => {
+        toast.error("Something went wrong. Please try reloading the page.");
+      });
   };
 
   return (
@@ -53,7 +57,6 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
       style={customStyles}
       contentLabel="Edit contact modal"
     >
-      {loading && <Loader />}
       <h2 className={css.title}>Edit contact</h2>
       <div className={css.inputWrap}>
         <label htmlFor="editedName"></label>
@@ -63,6 +66,9 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
           value={editedName}
           placeholder="Name Surname"
           className={css.input}
+          pattern=".{2,40}"
+          required
+          title="Username must be between 2 and 40 characters."
           onChange={(e) => setEditedName(e.target.value)}
         />
         <label htmlFor="editedPhone"></label>
@@ -72,6 +78,9 @@ const EditContactModal = ({ isOpen, closeModal, contact }) => {
           value={editedPhone}
           className={css.input}
           placeholder="Phone number"
+          pattern="^\+?\d[\d()\-\s]*$"
+          required
+          title="Phone number can start with '+' and contain only digits, dashes, parentheses, and spaces."
           onChange={(e) => setEditedPhone(e.target.value)}
         />
       </div>
